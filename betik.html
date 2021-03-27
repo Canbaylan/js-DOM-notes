@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script>
+	/*
+		Not : Script tagleri arasında bulunan kodları numaralandırarak ayırdım.
+			  Numaralandırdığım js kodlarının bazılarında html ve css kodları da olacağından
+			  bu html/css kodlarını 1747.satırdan itibaren bulabilirsiniz ve aynı şekilde
+			  kodun js bloğunda olan numara html,css bloğunda da vardır.
+			  İyi çalışmalar dilerim .
+			  
+	*/
+        
+    /* 5.html
+    var dizi=["css","javascript","html5"];
+    //object literali
+    var ball={x:12,y:12,radius:30}
+    delete ball;
+    delete ball.x;
+    delete ball.y;
+    console.log(ball); //radius:30
+
+    var ucgen={kenar1:10,kenar2:8,kenar3:6}
+    console.log("kenar1" in ucgen);//bu ifade true dondurur
+    console.log("kenar5" in ucgen);//false dondurur
+    
+    var numbers=new Array(10,20,30,40,50);
+    var sonuc="length" in numbers; // true
+    console.log(sonuc);
+    var sonuc1=5 in numbers; // false
+    console.log(sonuc1);
+        */
+    /* 6.html
+    var sayi2=prompt("Bir sayi girin:",20);
+    console.log(sayi2);
+    console.log("Sayi2 nin uzunlugu ->"+sayi2.length);
+    var tabankarekoku=Math.floor(Math.sqrt(sayi2));
+    console.log("sayi2 nin karekounun asagı yuvarlanisi: "+ tabankarekoku);
+    var nesne={x:2,y:4,z:5};
+    var dizi=[10,20,30,40,50,"ali",true];
+    for(var ozellik in nesne)
+        console.log("nesne."+ozellik+"="+nesne[ozellik]);
+    for(var dizisira in dizi)
+        console.log("Dizi["+dizisira+"]="+dizi[dizisira]);
+    
+    for(var dizisira of dizi)//for of döng elemanın kendisini ceker
+        console.log(dizisira);
+        //for of döngüsü nesneler üzerinde çalışmaz
+    */
+   /* 7.html 
+    var dizi1=new Array();
+    var dizi2=new Array(10);
+    console.log("Dizi1 uzunluk - > "+dizi1.length);
+    console.log("Dizi2 uzunluk - > "+dizi2.length);
+    var yenidizi1=new Array();
+    yenidizi1[0]=10;
+    yenidizi1[1]="Yeni veri türü";
+    yenidizi1[2]="a";
+    yenidizi1[4]="merhaba";
+    var yenidizi2=new Array(3);//boyutu aştıgımız halde calisir
+    yenidizi2[0]="b";   
+    yenidizi2[1]="seri";
+    yenidizi2[2]=41;
+    yenidizi2[3]=10.28;
+    console.log(yenidizi1[2]);
+    console.log(yenidizi1[3]);
+    console.log("Yenidizi1 uzunluk - >"+yenidizi1.length);
+    console.log("Yenidizi2 uzunluk - >"+yenidizi2.length);
+    var yenitanim=new Array(10,20,30,40,50,60);
+    console.log("Yeni tanim uzunluk - > "+yenitanim.length);
+    delete yenitanim[2];
+    console.log(yenitanim);
+    //silinen deger empty olarak kaydedildi
+    //ve silindikten sonra da dizinin uzunlugu değişmez
+    console.log("Yeni tanim uzunluk - > "+yenitanim.length);
+    var baskatanim=[10,20,30,40,50];
+    var rastgele=Math.round(Math.random()*5+1);
+    //1 ve 6 dahil aralarındaki sayıları döndürür. zar
+    //round sayı 0.5'in altındaysa alt tarafa
+    //0.5 ve 0.5 in üstündeyse üst tarafa
+    //floor direk alt tarafa
+    //ceil direk üst tarafa
+    console.log(rastgele);
+    var baskadizi=["a",true,{x:12,y:15},12,[1,3,5]];
+    for(var i=0;i<baskadizi.length;i++)
+        console.log(i+". leeman veri türü - >"+typeof(baskadizi[i]));
+    var calismadizi=[10,20,30,40,50];
+    calismadizi.pop();
+    console.log(calismadizi);
+    calismadizi.push(80,90,100);
+    console.log(calismadizi);
+    console.log(calismadizi.reverse());
+    //reverse conslog ile kullanıldıgında diziyi degistrir
+    calismadizi.shift();
+    console.log(calismadizi);
+    calismadizi.unshift(170,150,120);
+    console.log(calismadizi);
+    console.log(calismadizi.sort());
+    //sort ansi'ye gore sıralar.2 ve üstü basamaksa skıntı
+    //sort rakam ve harflerde calisir
+
+    function kucuktenbuyuge(a,b)
+    {
+        return a-b;
+    }
+    function buyuktenkucuge(a,b)
+    {
+        return b-a;
+    }
+    console.log(calismadizi.sort(kucuktenbuyuge));
+    console.log(calismadizi.sort(buyuktenkucuge));
+*/
+    /*8.html*/
+    /*
+    var dizi=[2,3,4,5,6,7,8,9];
+    console.log("splice() metodu isletilmeden once");
+    console.log(dizi);
+    var silinendizi=dizi.splice(2,4);
+    //splice(silinmeye baslanacak baslangıc indisi,kac tane silineceği)
+    console.log("splice() metodu isletildikten sonra");
+    console.log(dizi);
+    console.log("splice(2,4) ile silinen elemanlar dizisi");
+    console.log(silinendizi); 
+
+    var dizi2=[2,3,4,5,6,7,8,9];
+    console.log("splice() metodu baslamadan önce");
+    console.log(dizi2);
+    var silinendizi2=dizi2.splice(2,3,10,20,30,40,50);
+    //splice(silinmeye baslanacak baslangıc indisi,kac tane silineceği,bunların yerine girecek deger)
+    console.log("splice(2,3,10,20,30,40,50) kosulduktan sonra");
+    console.log(dizi2);
+    console.log("splice(2,3,10,20,30,40,50) sonucu silinen elemanlar");
+    console.log(silinendizi2);
+
+    console.log("splice 0 elemean sililenecek koşulma");
+    var dizi3=[2,3,4,5,6,7,8,9];
+    console.log("splice metodu isletilmeden once ");
+    console.log(dizi3);
+    var silinendizi3=dizi3.splice(2,0,10,20,30,40,50);
+    console.log("splice(2,0,10,20,30,40,50) kosulduktan sonra");
+    console.log(dizi3);
+    console.log("splice(2,0,10,20,30,40,50) sonucu silinen elemanlar dizisi");
+    console.log(silinendizi3);
+
+    //indexOf işaretlenen elemanın konumunu ogrenen islemdir. Sol tarafı baz alır
+    console.log("İndexOf elemanının kullanımı");
+    var dizi4=[2,3,4,2,6,3,8,4,6];
+    var indis=dizi4.indexOf(6);
+    console.log("Dizideki ilk 6 elemanının indisi= "+ indis);
+    //LastIndexOf sağı baz alır. Yani aranan elemanın son konumunu verir
+    console.log("LastIndexOf elemanının kullanımı");
+    var indis=dizi4.lastIndexOf(6);
+    console.log("Dizideki son 6 elemanının indisi= "+indis);
+    */
+    /*9.html*//*
+    function carp(element,index,array)
+    {
+        array[index]=2*element;
+    }
+    function topla(element,index,array)
+    {
+        toplam+=element;
+    }
+    var dizi=[2,3,4,5,6,7,8,9];
+    var toplam=0;
+    console.log("Dizi içerisindeki elemanlar ");
+    var dizikopi=dizi;
+    console.log(dizikopi);
+    dizi.forEach(carp);
+    console.log("Dizi elemanları 2 ile çarpıldı");
+    console.log(dizi);
+    console.log("Dizi elemanları toplama");
+    dizi.forEach(topla);
+    console.log("Dizinin elemanlarının toplamı: "+toplam);
+    //foreach dizinin her bir elemanında işlem yapacak fonksiyona göre.
+    //index,element,array'ı foreach için yazdık.
+    //FOREACH(ELEMAN,İNDİS,DİZİ ADI)
+    //foreach tur işlemini kendi yapar. 0 dan başlar sona kadar gider.
+    //elemnt,indis,array üclüsünde isim degil sırası önemlidir
+    function test(element,indis,array)
+    {
+        index1=indis;
+        return element%5!==0;
+    }
+    var dizi2=[2,3,4,5,6,7,8,9,10];
+    console.log("Dizi2 icerisindeki elemanlar");
+    console.log(dizi2);
+    dizi2.every(test);//every dizinin bütün elemanları üstünde işlem yaparken kurala uymayan
+    //bir değer geldiğinde fonksiyonu sonlandırır
+    console.log("İndex no: "+index1+" Degeri: "+ dizi2[index1]);
+    
+    function test2(element,indis,array)
+    {
+        index2=indis;
+        return element%6==0;
+    }
+    var dizi3=[9,15,17,5,8,7,12,4,10];
+    console.log("Dizi3 içerisindeki elemanlar ");
+    console.log(dizi3);
+    dizi3.some(test2);
+    //Some Kurala uyan 1 tane koşul gelirse durdurur.
+    console.log("Index no: "+index2+" Degeri: "+dizi3[index2]);
+
+    function tek(element,index,array)
+    {
+        return element%2!=0;
+    }
+    function cift(element,index,array)
+    {
+        return element%2==0;
+    }
+    var dizi4=[9,15,17,5,8,7,12,4,10,11,13,14,15,19];
+    console.log("Dizi4 içerisindeki elemanlar: ");
+    console.log(dizi4);
+    var tek=dizi4.filter(tek);
+    console.log("Dizi4 içerisindeki tek elemanlar");
+    console.log(tek);
+    //filter bir elemanlar dizisi döndüren sistem fonksiyonudur.
+    var cift=dizi4.filter(cift);
+    console.log("Dizi4 içerisindeki cift elemanlar");
+    console.log(cift);
+    
+    function harita(element,index,array)
+    {
+        if(element%2==0)
+        {
+            return "Ç";
+        }
+        else
+        {
+            return "T";
+        }
+    }
+    var dizi5=[9,15,17,5,8,7,12,4,10,0,11,13,14,15,19];
+    console.log("Dizi4 icerisindeki elemanlar");
+    console.log(dizi5);
+    var sonucdizisi=dizi5.map(harita);
+    console.log("Dizi icerisindeki elemenların tek ve cift durumları");
+    console.log(sonucdizisi);
+
+    var dizim=[8,12,14,16];
+    console.log("Dizim icerisindeki elemanlar ");
+    console.log(dizim);
+    var eklenenelemanlarlasondizi=dizim.concat(7,14,3,193,245);
+    console.log("dizinin son hali");
+    console.log(eklenenelemanlarlasondizi);
+
+    var dizin=[8,12,14,16,19];
+    console.log("Dizin icerisindeki elemanlar");
+    console.log(dizin);
+    var joinlidurum=dizin.join("-");
+    console.log("Dizinin son hali");
+    console.log(joinlidurum);
+
+    var dizimiz=[8,12,14,16,19,7,8,47,45,61,46];
+    console.log("Dizin icerisindeki elemanlar");
+    console.log(dizimiz);
+    var altdizi1=dizimiz.slice(2);
+    console.log("Tek parametreli alt dizi");
+    console.log(altdizi1);
+    var altdizi2=dizimiz.slice(2,3);
+    console.log("cift parametreli alt dizi");
+    console.log(altdizi2);
+    console.log("Dizinin string hale dönüştürülmesi-> "+dizimiz.toString());
+    //splice(start,how many,eklenecek)
+    //slice(start,end)
+
+*/  /*10.html*//*
+    var dizi2boyutlu=[[1,2],[3,4,5],[6,7,8,9]];
+    for(var i=0;i<dizi2boyutlu.length;i++)
+        for(var j=0;j<dizi2boyutlu[i].length;j++)
+            console.log("Dizi2boyutlu["+i+"] ["+j+"] - > "+dizi2boyutlu[i][j]);
+    */
+   /*11.html*/
+   //var difade=new RegExp("kalıp","ayarlar");
+   //veya
+//var difade=/kalıp/ayarlar
+//ayarlar sekmesindekiler -> g,i,m
+   //g:global(true ise yani ayarda varsa lastindex değişir yoksa değişmez)
+   //i:ignorecase(büyük kücük ayrımı yapmadan arar)
+   //m:multiline(birden fazla satırda satır bazında işlem yapmamızı saglar)
+   //lastindex değeri baslanacak konumu belirtir, değer baslangıcta 0'dır
+   //source değeri de kalıp değerinin string karşılığıdır
+   /*
+   var str="Javascript EcmaScript";
+   var dIfade=new RegExp("ri","g");
+   console.log("Lastindex özelliğinin başlangıc degeri-> "+dIfade.lastIndex);
+   dIfade.test(str);//test fonksiyonu eşleşme sağlanmışmı diye sorgulanır
+   console.log("Test fonksiyonu 1.icra edildikten sonra lastindex değeri:"+dIfade.lastIndex);
+   dIfade.test(str);
+   console.log("Test fonksiyonu 2.icra edildikten sonra lastindex değeri:"+dIfade.lastIndex);
+   dIfade.test(str);
+   console.log("Test fonksiyonu 3.icra edildikten sonra lastindex değeri:"+dIfade.lastIndex);
+    dIfade.test(str);
+    sayici=0;
+    console.log("--While dongusu ile yapma--");
+    var sonuc=dIfade.test(str);
+    console.log(sonuc);
+    dIfade.lastIndex=0;
+    while(dIfade.test(str))
+    {
+        sayici++;
+        console.log("Test fonksiyonu: "+sayici+". icra islemi sonunda lastindex degeri:"+dIfade.lastIndex);
+    }
+    console.log("Arama islemi sonucunda "+sayici+" uygun ifade bulunmuştur.");
+    */
+   //12.html
+   //test ile exec fonkları aynıdır. reg'in isaret edeceği string değişkenini eleman alırlar
+   //test true veya false döndürür. exec ise eşleşen elemanı dizi seklinde geri döndürür
+   /*
+   var str="Javascript ECMASCRIPT";
+   var difade=/ri/gi;
+   console.log(difade.exec(str));//baslangıcta lastindex 0'dır
+   console.log(difade.lastIndex);
+   
+   console.log(difade.exec(str));
+   console.log(difade.lastIndex);
+
+   console.log(difade.exec(str));
+   console.log(difade.lastIndex);
+   
+   console.log("--- BİR BASKA ORNEK ---");
+
+   var ptr="Javascript ECMASCRIPT";
+   var pifade=/ri/i;
+   console.log(pifade.exec(ptr));
+   console.log(pifade.lastIndex);
+   console.log(pifade.exec(ptr));
+   console.log(pifade.lastIndex);
+   console.log(pifade.exec(ptr));
+   console.log(pifade.lastIndex);
+
+   console.log("--- WHİLE İLE YAPMA ---");
+
+    while((sonuc=difade.exec(str))!=null)
+        console.log(sonuc);*/
+    //13.html
+    /*
+    var str="abcAbc";
+    var difade=/a/gi;
+    var sonuc=str.match(difade);
+    //match eslesmeleri iceren bir dizi dondurur(kalıbı)
+    console.log(sonuc);
+    var ptr="Javascript Dersi Javascript Konuları";
+    var pifade=/javascript/gi;
+    var ponuc=ptr.replace(pifade,"Html5");
+    //ilk ifadeyi alıp 2.ifadeyle yer degistirir replace metodu
+    console.log(ponuc);
+    //test ve exec regex nesnesini alıp calisan metodlardır.
+    //match,search ve replace ise regex'i parametre alır
+    var ktr="JAVASCRIPT Dersi Javascript Konuları";
+    var sifade=/pt/gi;
+    var tonuc=ktr.search(sifade);
+    //bulundugu yerin konumunu dondurur search
+    console.log(tonuc);*/
+    /*
+    ^ = karakter dizisinin başlangıcı
+    $ = karakter dizisinin sonu
+    \b =Düzenli ifadeye uygun olabilecek metin parçaları,karakter dizisi içerisindeki
+    kelimelerin başında yada sonunda aranır
+    \B =Düzenli ifadeye uygun olabilecek metin parçaları,karakter dizisi içerisindeki
+    kelimelerin içinde aranır
+    ?= =Bir karakter dizisi içindeki belirtilen referans metnin önünde düzenli ifade ile
+    eşleşebilecek metin gruplarını arar
+    ?! =Karakter dizisi içerisinde bir referans metin ile takip edilmeyen alt metinleri,
+    düzenli ifade ile eşleştirmek için kullanılır
+    {x} =x defa tekrarlanmış olması gerekir
+    {x, } = x defa ve daha fazla tekrarlanmış olması gerekir
+    {x,y} =En az x defa en fazla y defa tekrarlanmış olması gerekir
+    + =1 yada daha fazla tekrar
+    ? =ifade ya 1 tane olacak yada hiç olmayacak
+    * =ya hiç ya sonsuz
+    [abc] = belirtilen karakterlerden biri
+    [a-e] =a ve e arasından bir karakter
+    [^abc] =bu karakterlerden biri ile başlayamaz
+    a|b =ya a ya b
+    . =yeni satır karakteri hariç herhangi bir şeyle eşleşir
+    \w =bir sözcük karakteri ile (A-z,a-z,0-9 veya _) eşleşir. İngiliz alfabesi geçerlidir
+    \W =sözcük karakteri dışında herhangi bir şeyle eşleşir.(?+-)
+    \d =ondalık bir basamak eşleşir(0-9)
+    \D =rakam dışında bir karakter ile eşleşir
+    \s =herhangi bir boşluk karakter ile eşleşir(bosluk,tab,yenisatir)
+    \S =boşluk karakteri dışındaki herhangi bir karakterle eşleşir
+    \0 =null
+    \n =yeni satır karakteri ile
+    \f =sonraki saygaya geçme karakteri ile
+    \r =döndürme karakteri ile
+    \t =tab karakteri ile
+    \v =dikey tab karakteri ile
+    \xdd =16lık tabanda tanımlanmış dd sayısının ascii karşılığı
+    \udddd =16lık tabanda dddd sayısının unicode karşılığı
+    () =düzenli ifade içinde grup tanımlamak için kullanılır. karakter dizisi içindeki alt
+    eşleşmeleri elde etmek için kullanılır. | karakterinin kapsamını sınırlamak için kullanılır.
+    Nicelik belirten karakterlerin kapsamını tanımlamak için 
+    (?:) =Düzenli ifade içerisinde alt grup oluşturmak için kullanılır. () ifadeden farklı olarak
+    bu karakter alt eşleşmeleri yakalayamaz.
+    \ =ardından gelen karakterin özel bir karakter olup olmadığını belirtmek için kullanılır
+    */
+    //14.html
+    /*
+    function test(say1,say2)
+    {
+        alert(say1+say2);
+    }
+    test(3,5);
+    var toplama=function(a,b)
+    {
+        alert(a+b);
+    }
+    toplama(2,2);
+    var toplam=new Function("a","b","alert(a+b)");
+    toplam(1,2);
+    function parametre1(x,y,z)
+    {
+        console.log("x: "+x);
+        console.log("y: "+y);
+        console.log("z: "+z);
+    }
+    function parametre2()
+    {}
+    parametre1(10,20,30);
+    parametre1(10,20);
+    parametre1();
+    parametre2(20,30);
+
+    var usalma=function(taban,us)
+    {
+        var carpim=1;
+        for(var i=0;i<us;i++)
+            carpim*=taban;
+        return carpim;
+
+    }
+    var alt=prompt("Üssü alınacak sayiyi girin","0");
+    var ust=prompt("Kuvveti girin","0");
+    var sonuc=usalma(alt,ust);
+    console.log(sonuc);
+    *//*
+    function enkucukbul(dizimiz)
+    {
+        enkucuk=dizimiz[0];
+        for(var i=1;i<dizimiz.length;i++)
+        {
+            if(enkucuk>dizimiz[i])
+                enkucuk=dizimiz[i];
+        }
+        return enkucuk;
+    }
+    var sayilardizisi=[10,20,50,40,25,1,3,17];
+    var sonuc=enkucukbul(sayilardizisi);
+    console.log("Dizideki en küçük sayi: "+sonuc);
+    var karakterdizisi="orhun";
+    sonuc=enkucukbul(karakterdizisi);
+    console.log("En kucuk karakter: "+sonuc);
+
+    var arg=function(p1,p2)
+    {
+        for(var i=0;i<arguments.length;i++)
+        {
+            console.log("arguments["+i+"]="+arguments[i]);
+        }
+    }
+    arg(10,20,40,52,75,11,90);
+    //arguments gönderdiğim parametre sayisini baz alır.fonkdaki parametre sayısına eşlesmesine
+    //gerek yok.
+    var arg1=function(f1,f2,f3)
+    {
+        arguments[0]=5;
+        f2=10;
+        f3=1;
+        for(i=0;i<arguments.length;i++)
+        {
+            console.log("arguments["+i+"]="+arguments[i]);
+        }
+        
+    }
+    //fonksiyonda verilen degerler önceliklidir. Fonkdaki parametreden fazla parametre yollanmıssa
+    //bunlar sonraki değere eklenir.
+    arg1(23,33,43,55);//return 5,10,1,55
+
+    var arg2=function(f1,f2)
+    {
+        var arguments=12;//buradaki arguments sistemdeki değil local bir degiskendir
+        console.log(arguments);
+        
+        console.log(arg2.arguments);//bu ifade ile sadece fonksiyona dışarıdan yollanan parametreler bastırılır
+    }
+    arg2(23,33,42);//return 23,33,42
+
+    var ozet=function()
+    {
+        for(var i=0;i<ozet.caller.arguments.length;i++)//ozeti cagıran argumanın uzunlugu
+            console.log("islem.arguments["+i+"]="+ozet.caller.arguments[i]);
+    }
+    function islem(a,b)
+   {
+       ozet();
+   } 
+   function parametre1(x,y,z)
+   {
+    console.log("x:"+x);
+    console.log("y:"+y);
+    console.log("z:"+z);
+   }
+   function parametre2(){}
+   islem(4,18,"bc");
+   //islem fonkunun aldığı parametre sayisi2 ,arguman sayisi 3'tur <<<-----OZET--------
+   console.log("islem.length="+islem.length);//buralardaki length fonksiyonun argüman sayısını dönderir
+   console.log("Parametre1.length="+parametre1.length);
+   console.log("Parametre2.length="+parametre2.length);
+   console.log("arg1.length="+arg1.length);
+*/
+   //15.html
+   /*
+   var x="10+5*3";
+   var y=eval(x);
+   var z=eval("10+5*'a'");
+   var a=eval("10+5*true");
+   console.log(y);
+   console.log(z);
+   console.log(a);
+   //eval fonku mat işlemlerini ve diğer işlemleri gerceklestiren fonkdur
+   //true veya false olan boolean degeri sayısal degere donusur=509
+   //eval fonksiyonunda true 1,false 0 olarak tanımlanmıstır
+   var max=function max(a,b)
+   {
+       if(a<b) return b;
+       else return a;
+   }
+   var input=prompt("max(a,b) metodu büyük olanı geri dondurur");
+   console.log(eval(input));
+   var a=(max(15,max(8,-2)));
+   console.log(a);
+   *//*
+   var n1=1.78E+308;//js de atanabilecek en büyük sayı
+   var n2=5E-324;//js de atanabilecek en kucuk sayı
+   var n3=1.79E+309;
+   var n4=5E-325;
+   //isfinite girilen degerin sonlu olup olmadıgını sorgulayan fonkdur.
+   console.log("isFinite(1.78E+308)"+isFinite(n1));
+   console.log("isFinite(5E-324)"+isFinite(n2));
+   console.log("isFinite(1.79E+309)"+isFinite(n3));//false donecektir.sonsuz limiti gectigimiz icin
+   console.log("isFinite(5E-324)"+isFinite(n4));//tanılabilirlik aralıgının dısında olmasına ragmen
+   //true dondu (ödev)
+   console.log("isFinite(Number.POSITIVE_INFINITY)"+isFinite(Number.POSITIVE_INFINITY));
+   console.log("isFinite(Number.NEGATIVE_INFINITY)"+isFinite(Number.NEGATIVE_INFINITY));
+   //console.log(3E+2); return 3x10^2 = 300 e+2=10^2
+
+   var test=function(n)
+   {
+       if(isNaN(n))
+        return "sayi degil";//bu blogu calistirirsa fonkdan cıkar. alttaki return calismaz
+        return "sayi";
+   }
+   console.log(test(12));
+   console.log(test(12.45));
+   console.log(test("abc"));
+
+   var deger="global degiskenler .?='5'";
+   var esc=escape(deger);//escape verilen karakterleri kodlar
+   //(@ - _ . * + /)+rakamlar+harfler setini (yani bunları dönüstürmez)
+   //türkçe haric kodlamaz(yani türkçe karakterleri kodlar dönüştürür)
+   var unesc=unescape(esc);//escape ile kodlanmıs metni cozer
+   console.log(esc);
+   console.log(unesc);
+
+   var seger="kisi sayfa.aspx?adı=sena&yaşı='4'";
+   var uriEncode=encodeURI(seger);
+   //(; / ? : @ & = + $ , # - _ . ! ~ * '' ())+rakamlar+harflersetini dönüştürmez
+   //türkçe haric kodlamaz
+var uriDecode=decodeURI(uriEncode);
+console.log(uriEncode);
+console.log(uriDecode);
+
+var zeger="sayfa.aspx?adı=sena&yaşı='4'";
+var uriEncodeCom=encodeURIComponent(zeger);
+//( - _ . ! ~ * ' ())+rakamlar + harfler karakterlerini
+//türkce haric kodlamaz
+var uriDecodeCom=decodeURIComponent(uriEncodeCom);
+console.log(uriEncodeCom);
+console.log(uriEncodeCom);
+
+var sayilar=[["0xC",16],["C",16],["14",8],["012",10],["12",10],[12.88,10],
+["1100",2],["12*3",10],["12e+2",10],["12px",10],["12"]];
+for(var i=0;i<sayilar.length;i++)
+{
+    console.log("ParseInt("+sayilar[i][0]+","+sayilar[i][1]+")= "+parseInt(sayilar[i][0],sayilar[i][1]));
+}
+//12px = parseint 12ye kadar tutuyor. harf geldiginde kesiyor
+//parseInt(metin(islem yapılacak veri),taban)süp
+
+var tayilar=[1.67,25,"01.67","1.67ff","167e-2","25ece",".67","f1.67"];
+for(var i=0;i<tayilar.length;i++)
+    console.log("ParseFloat ("+tayilar[i]+")="+parseFloat(tayilar[i]));
+*/
+//16.html
+/*
+var A={//var A ile ayrıca nesne olusturulmus yani sınıfı tanımla,sınıftan nesne tanımla gibi bir şey yok
+    x:12,
+    y:24,
+    hesapla:function()
+    {
+        return this.x*this.y;//nesne olusturdugumuzda parametre gelirse sınıftakiyle ayırmak icin this kullnyrz
+        //javada thisleri yazmazsak calisir(fonkların icindeki x den bahsettigi icin),
+        //fonk icindeki yerel degiskenleri, nesnenin içindeki degiskenlerle ayırmak için kullnlır
+        //burada this koymazsak x ve y 'yi sınıfın degil farklı degisken olarak algılayabilir
+        //ornegin x dedigimizde global degisken olur var x dedigimizde local degisken olur
+        //buradaki this i koymazsak x,y sınıfın degil global olarak tanımlanmıs olur
+    },
+    islem:function(x,y)
+    {
+        this.x=x;
+        this.y=y;
+        return this.x*this.y;
+    }
+}
+var B=new Object();
+B.x=9;
+B.y=12;
+B.hesapla=function()
+{
+    return this.x*this.y;
+}
+console.log("A nesnesi: "+A.hesapla());
+console.log(A.islem(20,30));//buradan sonra a nesnesinin x ve y degerleri degisti. alttaki hesapla da degisir bundan dolayı
+console.log("A nesnesi: "+A.hesapla());
+console.log("B nesnesi: "+B.hesapla());
+
+var dortgen=function()//dortgen sınıfı var. nesne olusturdugumuzda  4 adet değişken constructor olarak atanır
+{
+    this.en=12;
+    this.boy=12;
+    this.x=5;
+    this.y=10;
+}
+var kare1=new dortgen();
+var kare2=new dortgen();
+var kortgen=function(EN,BOY,X,Y)
+{
+    this.en=EN;
+    this.boy=BOY;
+    this.x=X;
+    this.y=Y;
+    
+}
+var kare1=new kortgen(12,12,5,8);
+var kare2=new kortgen(24,24,4,5);
+//aynı nesneler tanımlanmıs kare1 ve kare2 ile.bu tanımlardan onceki yani dortgendeki kare1le kare2 etkisizleşiir
+
+var portgen=function(en,boy,x,y)
+{
+    this.en=en;
+    this.boy=boy;
+    this.x=x;
+    this.y=y;
+}
+var zortgen=function(en,boy,x,y)//bu satırdaki kullanımla birlikte hem fonksiyon hem nesne tanımlanır
+{
+    this.en=en;
+    this.boy=boy;
+    this.x=x;
+    this.y=y;
+    this.alan=function()
+    {
+        return this.en*this.boy;
+    }
+}
+var karem1=new zortgen(12,12,5,8);
+var karem2=new zortgen(24,24,5,1);
+
+console.log("Karem1 alan:"+karem1.alan());
+console.log("Karem2 alan:"+karem2.alan());
+
+var hortgen=function(en,boy,x,y)
+{
+    var nesne=new Object();
+    nesne.en=en;
+    nesne.boy=boy;
+    nesne.x=x;
+    nesne.y=y;
+
+nesne.alan=function()
+{
+    return this.en*this.boy;
+}
+return nesne;
+}
+var karem3=hortgen(15,9,4,6);
+var karem4=hortgen(15,12,2,3);
+console.log("Karem3 alan: "+karem3.alan());
+console.log("Karem4 alan: "+karem4.alan());
+
+var Uye=function(ad,soyad)
+{
+    this.ad=ad;
+    this.soyad=soyad;
+}
+var nesne=new Object();//nesne degiskeni,object sınıfı üzerinden olusturulmustur
+//nesne.constructor==object
+var dizi=new Array();
+//dizi.constructor==Array
+var uye1=new Uye();
+//uye1.constructor==Uye
+
+var C=function(x,y)
+{
+    this.x=x;
+}
+//hasOwnProperty nesneye kalıtsal gelen özellikler için false değeri üretir.
+var c=new C(10);//c isimli degisken C sınıfı üzerinden üretilmistir
+console.log(c.hasOwnProperty("x"));//c nesnesinin kendisine ait x propertysi var mı?
+console.log(c.hasOwnProperty("j"));//false
+console.log(c.hasOwnProperty("constructor"));//false
+console.log(C.prototype.isPrototypeOf(c));//c'nin prototype'ı(miraslama) C mi?:true
+console.log("\n");
+console.log(nesne.hasOwnProperty("x"));//false
+console.log(nesne.hasOwnProperty("j"));//false
+console.log(nesne.hasOwnProperty("constructor"));//false
+console.log(Object.prototype.isPrototypeOf(nesne));//Object sınıfından mı türetilmis ? :true
+console.log("\n");
+console.log(Object.prototype.hasOwnProperty("constructor"));//true:Object sınıfının constructor'ı vardır
+
+function K(x,y)//bu sekilde de nesne oluysturulabilir
+{
+    this.x=x;
+    this.y=y;
+    this.carp=function()
+    {
+        return this.x*this.y;
+    }
+}
+var ol=new K(2,5);
+console.log(ol.carp());*/
+
+//17.html
+/*
+function A(x,y)
+{
+    this.x=x;
+    this.y=y;
+    this.carp=function()
+    {   
+        return this.x*this.y;
+    } 
+
+}
+function B(z)
+{
+    this.z=z;
+}
+A.k=50;
+B.prototype=new A();//b'nin a'dan miraslandıgı(prototype)
+var o1=new A(10,20);
+
+var o2=new B(30);
+console.log(o1);
+console.log(o1.k);//nesne yukarıda olusturuldu. sonra tanımlanan A.k bir işe yaramaz
+console.log(o2);//z degerinin 30 oldugunu gosterecek.deger atanmadıgı icin x,y,carp icin birsey bastırmaz
+console.log(o2.x);//herhangi bir deger atanmadıgından undefined gelir
+o2.x=40;
+console.log(o2.x);
+
+console.log(o2 instanceof A);//true : o2 bden türetilmis. b de a yı miraslıyor
+console.log(o2 instanceof B);//true
+console.log(o2 instanceof Function);//false
+console.log(o2 instanceof Array);//false
+
+function C()//bombos bir fonksiyon/sinif
+{
+}
+C.prototype.x=10;//sınıfın bulundugu konuma x propertysi olusturuluyor 10 atanıyor
+C.prototype.y=20;
+C.prototype.carp=function()
+{
+    return this.x*this.y;
+}
+
+function D(z)
+{
+    this.z=z;
+}
+
+D.prototype=C.prototype;//dogrudan birbirine baglandılar.Prototype'da sonradan yapılacak islemler
+//bile D ve C 'ye etki eder
+var c1=new C();
+var d1=new D(30);
+
+console.log(c1.x);
+console.log(d1);//z:30
+console.log(d1.x);//10
+
+var E={
+    x:10,y:20,carp:function(){return this.x*this.y;}
+};
+function F(z)
+{
+    this.z=z;
+}
+F.prototype=E;//E literal bir nesne olarak tanımlandıgından bu sekilde miraslama oldu
+//mantalite new A ile aynıdır
+var f1=new F(30);
+console.log(f1.x);
+console.log(f1.y);
+console.log(f1.carp());
+
+function G(x,y)
+{
+    this.x=x;
+    this.y=y;
+    this.carpim=function()
+    {
+        return this.x*this.y;
+    }
+}
+function H(a,b,z)
+{
+    this.z=z;
+    A.apply(this,arguments);//buda miraslama yöntemidir.h sınıfı miras yoluyla a sınıfı üzerinden
+    //verileri elde etmeye calisiyor.this=h sınıfıdır(bu sınıf A dan miras alsın)
+    //arguments=bize gonderilen parametredir.
+}
+var g1=new G(1,2);
+var h2=new H(13,14,5);
+console.log(g1);
+console.log(g1.carpim());
+console.log(h2);
+
+function I(x,y)
+{
+    this.a=x;
+    this.b=y;
+    this.carpilir=function()
+    {
+        this.x*this.y;
+    }
+}
+function J(x,y,z)
+{
+    this.c=z;
+    I.call(this,x);//herhangi bir tek parametreli miraslama gerçekleşiyor
+}//j urettigim nesnede a olur b olmaz(822,823)
+var i1=new I(8,9);
+var j1=new J(10,11,12);//buradaki sıra önemli
+console.log(i1);
+console.log(j1);
+*/
+//18.html
+/*
+var str=String.fromCharCode(65,66,67,68);//asci karşılıgı degerleri normal karakterlere donusturur
+//unicodendan donusum yapar
+console.log(str);
+console.log(str.length);
+console.log(str.charAt());//parametresiz ise ilk indexi bastırır
+console.log(str.charAt(3));
+console.log(str.charCodeAt());//karakterin asci karsılıgını dondurur
+
+var str1="metin1";
+var str2="metin3";
+var strcon=str1.concat("metin2",str2,"metin4");
+console.log(strcon);
+
+var stringim="Javascript Javascript";
+var konum=stringim.indexOf("ript");
+console.log(konum);
+var istenilenkonum=stringim.indexOf("ript",10);//nerden aramaya baslayacagız.
+console.log(istenilenkonum);
+var varmi=stringim.indexOf("yok");
+console.log(varmi);
+
+var sonkonum=stringim.lastIndexOf("ript");
+console.log(sonkonum);
+var nerdenitibaren=stringim.lastIndexOf("ript",10);//buldugu zaman baslangıctan itibaren verir konumu
+//10.karakterden önce aramaya baslar
+console.log(nerdenitibaren);
+
+var yazi="Javascript DOM";
+console.log("slice(0)="+yazi.slice(0));//tek parametre bitis stringin sonuna ekler:Javascript DOM
+console.log("slice(5)="+yazi.slice(5));//5.karakter dahil bundan sonrakileri basar:cript DOM
+console.log("slice(6,10)="+yazi.slice(6,10));//6 dahil 10 haric 4 karakter basar:ript
+console.log("slice(6,-2)="+yazi.slice(6,-2));//6 dahil -2.karakter haric basar:ript D
+console.log("slice(3,2)="+yazi.slice(3,2));
+console.log("slice(-5)="+yazi.slice(-5));//-5. karakter dahil yazının sonuna kadar basar:t DOM
+
+var stiring="Javascript,DOM,BOM,window,nypçğ";
+console.log(stiring.split(","));//split verilen degere göre parçalar ve dizi olarak geri dondurur
+console.log(stiring.split(",",2));//(parçalanacak karakter,kaç tane eleman)
+console.log(stiring.split("+",3));//+ olmadıgı icin ayrılma olmuyor. bütün yazı dizinin tek elemanıdır
+//onemli= slice(a,b) = a dahil b'ye kadar yazdır. fakat a'nın b'den kücük olması gerek
+//yani b büyük veya eşitse bosluk dondurur
+//substring(6,5)=5.karakterden itibaren 6 ya kadar.
+//substring parametrelerinde -(eksi) bir deger varsa bunu sıfırlar
+console.log("baslangıc=bitis");
+console.log("slice(5,5)="+stiring.slice(5,5));
+console.log("substring(5,5)="+stiring.substring(5,5));
+console.log("baslangic>bitis");
+console.log("slice(6,5)="+stiring.slice(6,5));
+console.log("substring(6,5)="+stiring.substring(6,5));
+console.log("baslangic negatif ise");
+console.log("slice(-27,5)="+stiring.slice(-27,5));
+console.log("substring(-27,5)="+stiring.substring(-27,5));
+console.log("bitis negatif ise");
+console.log("slice(5,-5)="+stiring.slice(5,-5));
+console.log("substring(5,-5)="+stiring.substring(5,-5));
+
+console.log("Substr kullanımı");
+console.log(stiring.substr(5,5));
+console.log(stiring.substr(-5,5));
+//-5.karakterden itibaren 5 karakter bastırır substr.splice'a benzer
+console.log(stiring.toLowerCase());
+console.log(stiring.toUpperCase());
+
+var bosluklu="     Selamlar     ";
+console.log("Bosluklu="+bosluklu);
+console.log("bosluksuz="+bosluklu.trim());
+
+var b1=new Boolean(NaN);
+var b2=new Boolean(null);
+var b3=new Boolean(Infinity);
+var b4=new Boolean("");
+
+//bütün bool degisken degerleri false'dir(b1,b2....).
+
+var date=new Date();
+console.log(date);//Tue Jan 12 2021 22:00:53 gmt.....
+
+var tarih=new Date(1989,09,11);//yıl,ay,gün zorunlu,saat,dakika,saniye,ms istege baglı
+console.log(tarih);
+
+console.log(date.getDate());//ayın kacıncı günü
+var gunler=new Array();
+gunler[0]="Pazar";
+gunler[1]="Pazartesi";
+gunler[2]="Salı";
+gunler[3]="Çarsamba";
+gunler[4]="Perşembe";
+gunler[5]="Cuma";
+gunler[6]="Cumartesi";
+console.log(date.getDay());//hafta bazında kaçıncı gün: 0=pazar 1=pazartesi
+console.log(gunler[date.getDay()]);
+console.log(date.getFullYear());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+console.log(date.getMonth());
+var ay=new Array();
+ay[0]="Ocak";
+ay[1]="Subat";
+console.log(ay[date.getMonth()]);
+console.log(date.getTime());//zamanı 1970den itibaren sayi olarak geri dondurur
+console.log(date.getTimezoneOffset());
+var tarihim=new Date(1181269986560);//fri jun .....
+console.log(tarihim);
+var tarihatama=new Date();
+tarihatama.setDate(1);//simdiki tarihin gunu degistirdi
+console.log(tarihatama);
+tarihatama.setFullYear(1978);//simdiki tarihin yılı degisti,yıl zorunlu,ay gün keyfi
+console.log(tarihatama);
+tarihatama.setHours(2);//simdiki tarihin saati degisti,saat zorunlu,dakika saniye keyfi
+console.log(tarihatama);
+tarihatama.setMilliseconds(45);
+console.log(tarihatama);
+tarihatama.setSeconds(1);
+console.log(tarihatama);
+tarihatama.setMinutes(3);//60'tan buyuk deger verirsek saat'e eklenir. mod60
+console.log(tarihatama);
+tarihatama.setMonth(3);//ay degisti. buna nazaran gunü de degisti mod31 den
+tarihatama.setDate(5);
+console.log(tarihatama);
+console.log(tarihatama.toString());
+//aynı tarih üzerinde setleme yaptıgımızdan ifadeye 1 kere yapılan atama degistirilmedigi sürece kalır
+
+var num=12.56366;
+var num1=4;
+console.log(num.toFixed(3));//virgulden sonra 3 basamak
+console.log(num1.toFixed(2));//return 4.00
+
+console.log(num.toPrecision(3));//sayinin nokta haric kac basamak olacagını belirler
+console.log(num1.toPrecision(2));//return 4.0
+
+console.log(Math.abs(-16));
+console.log(Math.acos(0.5));//yazilan degerin radyan açı cinsinden degeri
+//acos(0.5)=60 derece= pi/3= 3.14/3=1.04..
+console.log(Math.asin(1));
+console.log(Math.atan(1));
+console.log(Math.ceil(12.01));
+console.log(Math.ceil(12.78));
+console.log(Math.ceil(-12.34));
+console.log(Math.ceil(-12.74));
+console.log(Math.PI);
+console.log(Math.cos(Math.PI/3));
+console.log(Math.sin(Math.PI/6));
+console.log(Math.tan(Math.PI/4));
+console.log(Math.exp(1));//e^1
+console.log(Math.floor(5.43));
+console.log(Math.floor(5.63));
+console.log(Math.log(2.71));
+console.log(Math.min(4,8));
+console.log(Math.max(7,3));
+console.log(Math.pow(4,4));
+console.log(Math.random());//0 ile 1 arasında noktalı sayı dondurur
+console.log(Math.floor(Math.random()*6)+1);//1 ile 6 arasında floor
+//bir üstteki ifade ile Math.floor(Math.random()*6+1)) birbirinin aynısıdır
+console.log(Math.ceil(Math.random()*6));//1 ile 6 arasında ceil
+console.log(Math.round(Math.random()*5)+1);//1 ile 6 arasında round
+console.log("round donusum");
+console.log(Math.round(5.3));
+console.log(Math.round(5.75));
+console.log(Math.round(-5.3));//-5
+console.log(Math.round(-5.7));//-6
+console.log(Math.round(5.5));//6
+console.log(Math.round(-5.5));//-5
+console.log(Math.sqrt(4));
+//ceil büyük tamsayıya yuvarlar
+//floor küçük tamsayıya yuvarlar
+//round sayının noktalısı hangi tamsayıya yakınsa ona yuvarlar yapar=12.5=13 / 12.4=12 / 12.6=13
+*/
+//19.html
+/*
+var ctx,dtx,etx,ftx;
+var init=function()
+{
+    //once renk belirlenecek canvas icin
+    var canvasalan=document.getElementById("c");//canvasalan degiskeeni c id'sini tutacak,yakalayacak
+    ctx=canvasalan.getContext("2d");//canvasalan üzerinde 2 boyutlu islem yapılacak
+    ctx.fillStyle="aqua";//belirtilen renk ile tuval alanının doldurulması saglanıyor
+    //burada rengi vermis oldum sadece. asagıdaki fillrect ile de bu renkle boyama yapmıs oluyorum
+    //fillstyle 'da renk tanımlanması bir şey ifade etmez. fillrect yapmamız gerekir
+
+    dtx=document.getElementById("d").getContext("2d");//d idsinde 2d işlem yapacagım
+    dtx.fillStyle="blue";
+
+    etx=document.getElementById("e").getContext("2d");
+    degis();
+}
+var degis=function()
+{
+    var key="";
+    for(var i=0;i<6;i++)//güvenlik kodu 6 hane olacak
+    {
+        var rnd=Math.random();
+        if(Math.round(rnd)==0)
+        key+=String.fromCharCode(48+9*Math.random());//fromcharcode string olusturacak
+        //48 ile 57 arasında sayı donecek(48dahil,57 haric)=48-57 arası rakamların kodlarıdır
+        else
+        key+=String.fromCharCode(65+25*Math.random());//65 ile 85 arasında sayı dondurecek.
+        //65-85 arası A-Z arasıdır.(ingiliz alfabesindeki)
+    }
+    ctx.clearRect(0,0,150,50);//tam temizliyor(baslangıc noktasının x koord,baslangıc noktasının y,width,height)
+    //clearrect yapmazsak sayfayı yenilediğimizde yazıların üstüne yazı gelir
+    ctx.fillRect(0,0,150,50);//tuvali doldurur
+    ctx.font="25px calibri";
+    ctx.strokeText(key,25,35);//güclü yazı yazar stroke text(kalın)
+    //(key,25,25)=25 ,25=baslangıc noktasından x ve y uzaklıgı
+
+    dtx.clearRect(0,0,150,50);
+    dtx.font="25px calibri";
+    dtx.fillText(key,25,25);//yazıyı yazdırır.(yazı,baslangıc noktasına x uzklıgı,bslgnc y uzklıgı)
+    //fillRect yapmadıgımız icin alanı renkle doldurmadı
+
+    etx.clearRect(0,0,150,100);
+    etx.beginPath();//cizimi baslatır
+    etx.arc(95, 50, 40, 0, 3/2*Math.PI);//arc bir yay cizmemizi saglar.
+    //95,50=merkez koordinatları(x=95,y=50)
+    //40 = yarıcap(r),
+    //Açıyı 0 dan baslat(yani en üst en orta). 3/2*math.pi 'e kadar ciz.
+    //2 *math.pi = daire
+    //math.pi=180 => 3/2*math.pi = 270
+    etx.moveTo(95,50);//bir noktadan bir noktaya cizgi cekmek icin.(95,50 merkezin cemberidir)
+    etx.lineTo(120,80);//95,50'den 120,80'e cizgi ciziyoruz
+    etx.stroke();//stroke ile cizme islemi yapar. Bu olmazsa ekranda goremeyiz
+    etx.font="15px calibri";
+    etx.fillText(key,70,55);//(70,55 koordinatına yazıyı yazar)
+}
+var getir=function()
+{
+    ftx=document.getElementById("f").getContext("2d");
+    var img=document.getElementById("resim");//resimi yakalıyor
+    ftx.drawImage(img,0,0);//ftx cercevedir.drawimage ile resmi canvasın icine koyuyoruz.
+    //drawimage=(resmin bulundugu html elemanı,baslangıc noktaları(x,y))
+}
+*/
+//20.html
+/*
+document.activeElement (Gecerli belge üzerindeki secili elemanın referansı)
+document.anchors (Belge içerisindeki çapaların listesini saklayan HTMLCollection türünden bir nesne)
+document.body (Gecerli belgenin body elemanının referansı)
+document.characterset (meta elemanının içerisinde yapılan karakter kodlamasını elde etmek için kullanılır)
+document.compatMode (Gecerli belgenin tarayıcı tarafından hangi modda çalıştırıldığını elde
+etmek için kullanılır)
+document.cookie(Çerez olusturmak ya da bilgisayarda yüklü olan çerezleri elde etmek için kullanılır)
+document.defaultView (Gecerli belgenin window nesnesini elde etmek için kullanılır)
+document.designMode(Bu özellik geçerli belgenin calisma anında düzenlenebilir olup olmadıgını
+gosteren bir deger alır => on,off,inherit alır. off ve inherit düzenlenemez)
+document.dir(belge icerisindeki metinlerin yazılış yönünü ayarlamak için kullanılır=> ltr,rlt)
+document.doctype(belgenin döküman türünü içeren documenttype arayüzünden türetilmiş bir nesne dondurur)
+doctype elemanı tanımlanmamış ise dönüş degeri nulldır
+document.documentElement(html elemanının referansını bir element nesnesi olarak elde etmek için
+kullanılan özelliktir. eleman yok ise donus degeri nulldır)
+document.documentURI(gecerli sayfanın URI(Uniform resource ıdentifier) adresini metin olarak dondurur)
+document.embeds(belge içerisinde object etiketi ile gömülmüş elemanların listesini saklayan,
+HTMLCollection türünden bir nesne elde etmek için kullanılır)
+document.forms(Belge içerisindeki form elemanlarının listesini saklayan HTMLCollection türünden bir
+nesne elde etmek için kullaanılır)
+document.head(belge içerisindeki head elemanının referansı)
+document.images(belge icerisindeki img elemanlarının listesini saklayan HTMLCollection türünden
+bir nesne elde etmek için kullanılır)
+document.lastModified(Belgenin son güncelleme tarihini ve saatini elde etmek için kullanılır)
+document.styleSheets(Belge üzerinde etkisi olan stil sayfalarını içeren stylesheets türünden bir nesne
+elde etmeek için kullanılır)
+document.links(belge içerisindeki tüm linklerin listesini saklayan HTMLCollection türünden
+bir nesne elde etme için kullanılır)
+document.location(Belgenin url adresini ayarlamak için kullanılan özelliktir)
+document.plugins(belge içerisinde embed etiketi ile gömülmül elemanların listesini saklayan
+HtmlCollection türünden bir nesne elde etmek için kullanılır)
+document.readystate(belge içeriğinin tarayıcı tarafından yüklenme durumunu gösteren bir değer elde
+etmek için kullanılır)
+document.scripts(belge içerisindeki script elemanlarının listesini saklayan HTMLCollection
+türünden bir nesne elde etmek için kullanılır)
+
+HTMLCollection türünden nesneler aşağıda özellik ve metotlar verilmiştir.
+length:nesnenin içerdiği eleman sayısını verir
+item(index):nesne içerisinden parametre olarak verilen indeks numarasına sahip elemanı döndürür
+namedItem(name):nesne içerisinden parametre olarak verilen isme sahip elemanı döndürür
+
+Belge içerisinde (belgenin ağac yapısında) degisiklik oldugu zaman HTMLCollection nesnesi
+içindeki eleman listesi güncellenir. 
+*//*
+function init()
+{
+    var imgCollection=document.images;//sayfa icerisindeki bütün img elemanlarını listeleyen htmlcllction
+    //türünden nesne elde etmek için kullanılır
+    console.log("İmgCollection:");
+    for(var i=0;i<imgCollection.length;i++)
+    console.log(imgCollection[i]);//konsola imglerin özelliklerini(baştan sona tag'i) bastırır
+
+    console.log("Yeni eleman eklendikten sonra: \n");
+    var imgEl=document.createElement("img");//dinamik olarak eleman olusturma
+    //createelemnt=(tip) : dökümana bir eleman ekler. hangi eleman eklenecekse onun tag'ı yazılır
+    imgEl.src="r5.jpg";//bir nesne olusturdum.Bu elemana ait property'leri ekleniyor
+    //html tarafındaki attribute ler nesnenin propertylerine denk düsüyor
+    imgEl.id="r5";
+    imgEl.style="max-height:250px";
+    imgEl.alt="merhaba";
+ 
+    //olusturulan elemanın dokumana eklenmesi gerekir
+    document.body.appendChild(imgEl);//olusturulan elemanı body elemanına ekleme
+
+    for(var i=0;i<imgCollection.length;i++)//son eklenen dahil olmak üzere htmlcollection nesnelerini
+    //konsola basıyoruz
+        console.log(imgCollection[i]);
+}*/
+//21.html
+/* getElementById => Belge icerisindeki bir elemanın referansını elde etmek için kullanılır.
+referansı elde etmek için id özelliği metoda parametre olarak verilir.
+getElementsByName => Bu metot name özelliklerine(attribute),kendisine parametre olarak 
+verilen değer atanmış elemanların listesini iceren HTMLCollection türünden bir nesne döndürür
+
+function init()
+{
+    var Elp=document.getElementById("first");
+    console.log(Elp.id);
+
+    var nameCollection=document.getElementsByName("ct");
+    for(var i=0;i<nameCollection.length;i++)
+        console.log(nameCollection[i]);//dokuman üzerinde name attribute'u ct olan html tag'i dondurur(html collection dndrr)
+}*/
+//22.html
+/*
+getElementsByTagName => Belge içerisinde belirtilen etiket adına sahip olan tüm elemanların
+listesini iceren NodeList türünden bir nesne elde etmek için kullanılır
+yani tag ile(html etiketleri) ile yakalayacagız(id ile ve name ile yakalamıstık onceki bölümlerde)
+
+function init()
+{
+    var pNode=document.getElementsByTagName("p");//dokuman uzerindeki paragrafları liste seklinde geri dndr  
+    for(var i=0;i<pNode.length;i++)
+    console.log(pNode[i]);
+    console.log("Yeni eleman eklendikten sonra \n");
+   var pEl=document.createElement("p");
+
+   pEl.id="3";
+   pEl.style="color:red;margin-left:20px;";
+   pEl.textContent="Saygılar";//icerik eklenir
+   document.body.appendChild(pEl);
+   for(var i=0;i<pNode.length;i++)
+    console.log(pNode[i]);
+}*/
+//23.html
+/*
+function init()
+{
+}*/
+//24.html
+/*
+function init()
+{
+    var div1=document.querySelector('#html5');//icerisine verilen elemanı yakalar queryselector
+    var span=document.querySelector('#html5>span');//html5 divinin icindeki span'ı yakala.span saf etiket olddan secicisiz yazdk
+    var div2=document.querySelector('#html5+div');//idsi html 5 olan elemanı yakala ve bir sonraki divi yakala
+    var p=document.querySelector('div#content p');//div id'si content olan ve cocugu veya torunu
+    //'div#content p' = '#content>p'
+
+    div1.style.backgroundColor="red";    
+    span.style.backgroundColor="blue";
+    div2.style.backgroundColor="yellow";
+    p.style.backgroundColor="orange";
+    //p tagının alt ve üst satırdan 1 tam bosluk bırakır. asp.net ile javascript arasındaki bosluk bu sebpten
+}*/
+/*
+//25.html
+//queryselector'de birden fazla eşleşme varsa ilk eşleşeni tutar ve aramayı bitirir
+
+function init()
+{
+    var div=document.querySelector('div');//div idsi 1 olanı tutar
+    console.log(div);
+    var span=document.querySelector('div>span');//boyle bir tag yok(bos kume gelecek)
+    console.log(span);
+
+    var Eldiv=document.querySelector('#div1,.p1');//ilkini bulursa 2.'ye bakmıyor.
+    //1.paramı bulamazsa 2.ye bakıyor
+    var elP=document.querySelector(".p2,.p3");//p3'ü secer cünkü p2 class ı yok
+    alert(Eldiv.id+"\n"+elP.className);
+   
+}*/
+//26.html
+/*
+function init()
+{
+    var divlist=document.querySelectorAll('div.dom p');//query selector ilk esleseni dondurur.
+    //class ismi .dom olan div taglarını arıyor ve bunun altındaki p taglarının hepsini alıyor
+    //queryselectorall ile aldıgımız veri nodelist olarak geri donuyor
+    //queryselectorall ise eslesenlerin kumesini geri donduruyor.
+    console.log(divlist);
+    for(var i=0;i<divlist.length;i++)
+    {
+     console.log("p"+(i+1)+" icerigi: "+divlist[i].textContent);
+    }
+}*/
+/*
+//27.html
+function buton()
+{
+    var nList=document.querySelectorAll('div.dom p');//div içerisinde class ozelligi dom olanı
+    //arıyor ve p 'leri alıyor
+    console.log("nList icerisindeki eleman sayısı:"+nList.length);
+    var div=document.querySelector('.dom');
+    var p=document.createElement('p');
+    p.textContent="Dom level 4";
+    div.appendChild(p);//burda divin altına degil. divin son cocugundan sonra ekler
+    console.log("div elemanı içerisine yeni bir p elemanı eklendi");
+    console.log("nList içerisindeki eleman sayısı: "+nList.length);
+}
+Nodelist'te ağaç veya belgenin yapısı degistiginde icerik güncellenmez
+Fakat htmlcollection türünden bir nesne'de bu durum oldugunda güncellenir
+*/
+/*
+//28.html
+var init=function()
+{
+    var pList1=document.getElementsByClassName("ctx");
+    isaretle(pList1,'gray');//2 eleman tutuyor plist1
+    var pList2=document.getElementsByClassName("p1 p2");//p1 ve p2'yi iceren elemanların listesini tut
+    //p1 ve p2 icin sıranın bir onemi yok getelementsbyclassname'de.
+    //dokumanda p class'ı <p1,p2> ve <p2,p1> olan 2eleman tutar
+    isaretle(pList2,'khaki');
+}
+var isaretle=function(pListRef,color)
+{
+    for(var i=0;i<pListRef.length;i++)
+    {
+        var element=pListRef.item(i);//i'ye gore gelen elemanları yakalar
+        element.style.backgroundColor=color;
+    }
+}*/
+//29.html
+/*
+var buton=function()
+{
+    var dugum=document.getElementById("div1");//id'si div1 olan ilk elemanı yakalar
+    var oznitelik=document.createAttribute("title");//oznitelik degiskeni title olusturacak
+    oznitelik.nodeValue="Paragraf Tutan Div";//title'in degeri icerik(nodeValue ile title'in icerigini yazarız)
+    dugum.setAttributeNode(oznitelik);//oznitelige atamıs oldugumuz degerleri dugume ekliyoruz
+    //setattribute yapmazsak ekleme işlemi olmaz ve sayfada bir şey göremeyiz
+    var resim=document.getElementsByTagName("img");//tag'i img olan etiketi dizi şeklinde alır  
+    var ozdeger=document.createAttribute("style");
+    ozdeger.nodeValue="max-width:250px";//olusturulan nesneye içerik vermek için nodeValue olsturuyorz
+    resim[0].setAttributeNode(ozdeger);//dokumanda 1 tane resim oldugundan resim[0] yazdık.
+}*/
+//30.html
+/*
+function buton()
+{
+    var el=document.createElement("div");//eleman olusturduk pram olarak html tagi verecegiz
+    el.className="dynamicDiv";//html tarafında class'a denk düşüyor className
+    document.body.appendChild(el);//bodynin en son elemanı olarak eklenecek
+    var yazi=document.createTextNode("Bu yazı dinamik olarak oluşturuldu");
+    var divi=document.getElementById("msg");
+    divi.appendChild(yazi);//msg id'sinde hiçbir şey yok. Bu yazi msg'nin icine eklenir
+    var yorum=document.createComment("Dinamik yorum");//html içerisinde bunu yorum satırı olarak sokacak
+    divi.appendChild(yorum);
+    var paryakala=document.getElementsByTagName("p");//dokumanda 1 tane <p> tagı var.Bunu tutacak dizi seklinde
+    var paryazi=document.createTextNode("Paragraf yazisi");
+    paryakala[0].appendChild(paryazi);
+    //22 htmlde textcontent ile icerik ekledik 0'dan p olusturup
+    //burayada createtextnode ile içerik ekledik varolan bir p'ye
+}*/
+//31.html
+/*
+function buton()
+{
+    var el=document.getElementById("one");
+    var attr=el.attributes;
+    console.log("attr: ");
+    console.log(attr);//one id'sinin bütün attributelerini içeren bir namednodemap listesi döndürür
+    //bu liste sırasıyla doner.=> id,style,title . . .
+
+    console.log("attr.length: ");
+    console.log(attr.length);
+
+    console.log("attr.item(0): ");
+    console.log(attr.item(0));
+
+    console.log("attr.item(1): ");
+    console.log(attr.item(1));
+
+    console.log("attr[1]: ");
+    console.log(attr[1]);//üsttekiler gibi bu sekilde de bastırabiliriz
+
+    console.log("attr.getNamedItem('style'): ");
+    console.log(attr.getNamedItem('style'));//return style="background-color:aliceblue"
+
+    console.log("attr.removeNamedItem('name'): ");//name attribute'ını siler
+    console.log(attr.removeNamedItem('name'));//return name="parag"
+
+    var oznitelik=document.createAttribute("title");
+    oznitelik.nodeValue="yazimiz";
+    //oznitelik.title=yazimiz
+    attr.setNamedItem(oznitelik);//el.setAttributeNode(oznitelik); =>bu sekilde de tanımlanabilir
+    //setattributenode 'ı yakaladıgımız eleman icin kullanıyorduk. bunun içinde kullanılabilir
+    //one id'sine sahip elemanın title'ı yazimiz olur
+
+    console.log("attr: ");
+    console.log(attr);
+
+    var cocuk=document.getElementById("cocuk");
+    console.log("Body'nin eleman sayisi: ");
+    console.log(cocuk.childElementCount);//yakalanan elemanın cocuk sayısı ögrenilir
+    //body'nin cocuk sayısı 3 tür. Fakat </body>'den sonra style yazdıgımızdan 4 bastırlır
+}*/
+//32.html
+/*
+function buton()
+{
+    var divim=document.getElementById('left');
+    var altdugumler=divim.childNodes;//altdugumlerin bir listesini elde ediyoruz,nesne şeklinde
+    console.log("Node sayisi: "+altdugumler.length);
+    for(var i=0;i<altdugumler.length;i++)
+    console.log(altdugumler[i]);
+    //bosluk bırakmak node sayısını etkiler.Her bosluk dizisi veya satır atlamada 1 artar
+    //node sayisi 3'tür.divden h3'e kadar 1.node,h3 2.node,h3'ün bitisinde </body>'e 3.node'dur
+    //console'dan nodevalue degerinden boslukların ne kadar oldugu gorulur
+    //hepsini aynı satırda yazdıgımızda nodevalue=1'dir. o da h3 etiketidir
+    console.log("altdugumler eleman sayisi");
+    console.log(divim.childElementCount);//yakalanan elemanın sadece cocuk elementlerini basar
+}*/
+//33.html
+/*
+function buton()
+{
+    var divim=document.getElementById('left');
+    var altdugumler=divim.children;
+    console.log("Left id degerine sahip div tagının elemanları: ");
+    for(var i=0;i<altdugumler.length;i++)
+    console.log(altdugumler[i]);
+
+    console.log("Left id degerine sahip div tagının ilk elemanı:");
+    console.log(divim.firstChild);//yakalanan elemanın ilk cocugudur.Yani boşluk(#text)
+    console.log("left id degerine sahip div tagının son elemanı:");
+    console.log(divim.lastChild);//</div> ile h4 ün boslugunu silersek h4 son cocuk olur
+    //fakat dokumanda bosluk oldugundan bosluk son cocuktur.
+
+    console.log("left id degerine sahip div tagının ilk html elemanı");
+    console.log(divim.firstElementChild);
+    console.log("left id degerine sahip div tagının son html elemanı");
+    console.log(divim.lastElementChild);
+
+    console.log("left id degerine sahip div tagından onceki eleman:");
+    console.log(divim.previousSibling);//sibling=kardes(aynı seviyedeki)
+    //bosluk oldugundan return #text
+    console.log("left id degerine sahip div tagından sonraki eleman:");
+    console.log(divim.nextSibling);
+    //bosluk oldugundan return #text'tir.Fakat </div>'den sonra center gelirse centeri basar
+    console.log("left id degerine sahip div tagından onceki html elemanı:");
+    console.log(divim.previousElementSibling);
+    //prevelmtsbling null doner cünkü kendisiyle aynı seviyede önceki bloklarda eleman yok
+    //left idnin başlangıcından önce bir <br> eklersek konsolda null yeni br yazar
+    console.log("left id degerine sahip div tagından sonraki html elemanı:");
+    console.log(divim.nextElementSibling);
+    //<center> etiketi doner. Kendi bitişinden sonra aynı seviyede yani kardeşi oldugundan
+    console.log("left id degerine sahip div tagının ana dügümü:");
+    console.log(divim.parentNode);
+    //left id nin bir üst seviyesindeki html elemanını dondurur.(return body)
+}*/
+//34.html
+/*
+function buton()
+{
+    var eleman=document.querySelector('div');//div tagına sahip ilk elemanı yakala
+    console.log("ClassList: ");
+    console.log(eleman.classList);//eleman'ın class özelligine atanmıs degerleri alabiliyoruz
+    //classlist , domtokenlist olarak geri doner
+
+    var baska=document.getElementById('one');
+    console.log("ClassList: ");
+    console.log(baska.classList);
+
+    console.log("Class sayisi: ");
+    console.log(eleman.classList.length);
+
+    eleman.classList.add('d4');//ilgili elemana d4 sinifini ekliyoruz
+    console.log("d4 class'ı eklendi");
+    console.log(eleman.classList);
+
+    console.log("Class sayısı");
+    console.log(eleman.classList.length);
+
+    var domToken1=eleman.classList;
+    domToken1.remove('d1');//elemana ait d1 sınıfını siliyoruz
+    console.log("d1 silindi: ");
+    console.log(eleman.classList);//farklı bir degisken olusturup eleman.clslist'i ona esitledik.
+    //olusturdugumuz degiskende degisiklik yaptığımızda bu degisken referans aldıgından
+    //eleman degiskenimizde degisir.
+
+    console.log("d4 sinifi var mı?");
+    console.log(domToken1.contains('d4'));//return true
+//contains true veya false döner.true ise var,false ise yok
+    console.log("d5 sinifi var mı?");
+    console.log(domToken1.contains('d5'));//return false
+
+    console.log("ilk sinif kim?");
+    console.log(domToken1.item(0));
+    console.log("ilk sinif kim?");
+    console.log(domToken1[0]);//2 sekilde ogrenilir
+
+    console.log("ikinci sinif kim?");
+    console.log(domToken1[1]);
+
+    console.log("d4 sinifi varsa sil");
+    console.log(domToken1.toggle('d4'));//varolan d4 class'ını siler ve false doner
+//toggle parantez icindeki eleman varsa siler yoksa ekler
+    console.log("d5 sinifi yoksa ekle");
+    console.log(domToken1.toggle('d5'));//olmayan d5 class'ını ekler ve true doner
+
+    console.log("SON DURUM");
+    console.log(eleman.classList);
+}
+*/
+//35.html
+/*
+function buton()
+{
+    var el=document.getElementById('msg');
+    console.log(el.className);//1 tane class'ı oldugundan bastırdık.2 tane olsaydı
+    //2'si dönerdi yine fakat string seklinde.classlist'te dizi seklinde doner
+    var giris=document.getElementById('giris');
+    giris.contentEditable=true;//içerik düzenlenebilir hale gelmiş oluyor.Yani içeriği değiştirebliyoruz sayfada
+    giris.id="paragraf";
+    giris.dir="rtl";//yönünü righttoleft yapmıs.sagdan sola yazıldı.
+    var buton=document.getElementById("button");
+    buton.title="tikla degistir";
+    console.log(buton.nodeName);//return input
+    console.log(buton.nodeType);//return 1(html elemanları 1 doner html elemanını yakaladıgımızdan)
+    console.log(buton.nodeValue);//bununla ilgili nodevalue degeri atanmadıgından null doner.value ile nodevalue farklıdır
+    var divim=document.getElementById('create');
+    console.log(divim.style.length);//elemanın css özelliği sayısını gosterır return 4
+    console.log(divim.style.cssText);//elemanın css için yazılan kodu basar
+    console.log(divim.style.item(2));//3.css özelliğini basar
+    console.log(divim.style.getPropertyValue("color"));//color property'sine atanan degeri basar(blue)
+    console.log(divim.style.removeProperty("font-family"));//atanan font-family degerini sildi return calibri(calibri'yi sildi)
+    console.log(divim.style.setProperty("border","1px solid gray"));//1 px kalınlıgında sabit cizgi atar elemente
+}*/
+//36.html
+/*
+function buton()
+{
+    var el=document.getElementById("ilk");
+    console.log(el.innerHTML);//yakalanan elemanın html cıktısını basar
+    el.innerHTML="<h1>Merhaba <span>Selam sana dünyalı</span></h1>";//yakalanan elemanın içeriğini silip h1'i ekler
+    var par=document.getElementById("para");    
+    console.log("paragrafın icerigi: "+par.textContent);
+    console.log(par.innerHTML);//text content ve innerhtml ile yakalanan elemanın içeriği basılır
+
+    var yenipar=document.createElement("p");
+    yenipar.id="yenipara";
+    yenipar.textContent="Donucez";
+    par.parentNode.insertBefore(yenipar,par);//para id'sinden öncesine yenipar degiskenini ekle
+    //insertbefore(eklenecek eleman,hangi elemandan önce eklenecek)
+    
+
+    var disparan=document.getElementById("dispar");
+    var nextpar=document.createElement("p");
+    nextpar.textContent="Haydi";
+    document.body.insertBefore(nextpar,disparan);
+
+    var sil=document.getElementById("silinecek");
+    document.body.removeChild(sil);
+    var eleman=document.getElementById("ilk");
+    console.log("ilk divin name icerigi: "+eleman.getAttribute("name"));//getattribute ile yazdırdık
+    eleman.removeAttribute("name");//name atrsini sildik
+    eleman.setAttribute("title","ilk divimiz");//title setledik elemanın property'sine
+}
+function butoniki()
+{
+    document.body.innerHTML="<h1>Bibdi</h1>";//bütün içeriği siler ve <h1> tagını içerikteki gibi basar
+}*/
+//37.html
+/*
+function fun()
+{
+    //belge üzerindeki html elemanlarına bastıgımızda gerçeklesecek olaylar tanımlanır
+    //html'lere tıkladıgımızda dom'dan body tagına geciyor.body tagından itibaren tıkladıgımız html elemanlarına kadar
+    //hiyerarşik düzen vardır
+    //Tıkla1!'e' bastıgımızda hiyerarşik olarak asagı iner  = dom ->body->div->div->p
+    //dom'dan tiklaya kadarki p yakalama işlemi,tıkladıgımız şey hedef,hedeften dom'a donus kabarcıklanma işlemidir
+    //ve bu 3 olay için fonklar tanımlanabilir
+    document.body.addEventListener("click",fun1,true); //yakalama:dokumanın body elemanına
+    //olay tanımlanmıs.Mouse ile body'e bir tıklama olursa fun1 fonk kosacak.
+    //bir olay gercekleştiğinde fonksiyonu kos
+    //addevntlstner(gerceklesecek olayın ismi,olay gerceklestiginde kosması gereken
+    //kod veya o kodu barındıran fonksiyon ismi,bu fonksiyonun hangi evrede calısıp
+    //calismayacagını belirtme)2 veya 3 param alır addEventListener
+
+    document.body.addEventListener("click",fun11,false); //kopurme:dönüs olayındaki click olayı
+    //3.param true ise yakalamadır.Tıkladıgımızda bu kod sadece o elemana gidişte calisacaktır
+    //3.param false ise kabarcıklanmadır.Elemana Tıkladıgımızda elemanın kodu varsa o kosacak sonra
+    //kod varsa o koşacaktır.true ile false'ın farkları true'da hedef kod'a verilen fonk ilk olarak calisir
+    //3.paramı vermesse sadece hedef kod calisir
+    //ayrıca hedef eleman'a gelirkenki elementlerde olay gerceklemesi varsa bunlarda yapılıp hedef elemanınki yapılır
+    document.getElementById('ust').addEventListener("click",fun2,true);
+    //ust id'sine sahip ilk elemanı yakalar ve fun2'yi kosar
+    document.getElementById('ust').addEventListener("click",fun222);
+    
+    document.getElementById('ust').addEventListener("click",fun22,false);
+    
+    document.getElementById('yes').addEventListener("click",kos);
+
+    document.getElementById('alt').addEventListener("click",fun3);//hedef
+
+    document.body.addEventListener("click",funbody);
+}
+//tıkla1 e tıkladıgımızda ilk kosacak click olayı kodu en içtekidir.sonra o koddan baslayarak
+//click olayları calısır.click olayına gelene kadar varsa yakalama kodları kosar sonra kopurme kosar
+//ilk body yakalaması kosacak. sonra ağactaki bodynin altındaki yakalama kodları calisacak ve bitecek
+//ust'e ait yakalama calisacak.alt'a ait yakalama olmadıgından kosmayacak ve
+//hedefin kendi kodu kosacak. ardından alt'tan baslayarak kopurme baslar.alt'a ait kopurme koduna bakılır
+//alt'a ait kopurme kodu olmadıgından kosmaz. ust'e ait kopurme kosar ve son olarak
+//body'e ait kopurme kodu kosar.Sıralama tam olarak böyledir.
+//yakalama üstten alt'a.bitince hedef kod.bu da bitince alttan baslayarak üst'e kopurme kodları kosar
+// tıkla1 sıralama: body yakalama > ust yakalama > paragraf click > alt click > ust click > ust yakalama>body yakalama
+
+function funbody()
+{
+    console.log("body elemanı clik olayı");
+}
+function fun1()
+{
+    console.log("body elemanı yakalama click olayı");
+}
+function fun11()
+{
+    console.log("body elemanı kopurme click olayı");
+}
+function fun2()
+{
+    console.log("ust tagına sahip div elemanı yakalama click olayı");
+}
+function fun22()
+{
+    console.log("ust tagına sahip div elemanı kopurme click olayı");
+}
+function fun222()
+{
+    console.log("ust tagına sahip div elemanı click olayı");
+}
+function fun3()
+{
+    console.log("alt tagına sahip div elemanı click olayı");
+}
+function kos()
+{
+    console.log("paragraf tıkla2 click olayı");
+}
+*/
+//38.html
+/*
+function fun()
+{
+    document.getElementById('ust').addEventListener("click",fun2,true);
+    document.getElementById('alt').addEventListener("click",fun3);//click olayı 
+    //bir cesit kopurme olayına donmus oldu. hem 1 hem 2
+}
+
+function fun2(olay)
+{
+    console.log("olay akısı evresi: "+olay.eventPhase);//eventphase ile olayın akıs evresiyle ilgili bilgi alırız
+    //return olay akısı evresi: 1 .yakalama evresinde oldugumuz icin 1 dondu
+    //2 hedef evresi , 3 kopurme evresi
+    console.log("event nesnesinin yakalandıgı(suan ki) eleman: "+olay.currentTarget+" ve id="+olay.currentTarget.id);
+    //current.target=return objecthtmldivelement return ust yakaladıgımız eleman ust oldugundan
+    console.log("olayı gerceklestiren hedef eleman: "+olay.target+" ve id="+olay.target.id);
+    //olayı gerceklestiren alt dividir
+}
+function fun3(olay)
+{
+    console.log("olay akıs evresi: "+olay.eventPhase);
+    console.log("event nesnesinin yakalandıgı eleman: "+olay.currentTarget+" ve id="+olay.currentTarget.id);
+    console.log("olayı gerceklestiren hedef eleman: "+olay.target+" ve id="+olay.target.id);
+}
+*/
+//39.html
+/*
+function yukle()
+{
+    document.body.addEventListener("click",kos,false);//bu kod kopurmede kosacak yani geri dönmede
+}
+function kos(nesne)
+{
+    var yaz="olay tipi: "+nesne.type+"\n";
+    yaz+="hedef eleman: "+nesne.target+"\n";
+    yaz+="yonlendiriciyi yakalayan eleman: "+nesne.currentTarget+"\n";
+    yaz+="yakalama evresi: "+nesne.eventPhase+"\n";
+    yaz+="kopurme safhasında mıyız: "+nesne.bubbles+"\n";
+    yaz+="davranis iptal edilebilir mi: "+nesne.cancelable+"\n";
+    //nesne.preventDefault();
+    yaz+="olayın varsayılan davranisi iptal edilmiş mi: "+nesne.defaultPrevented+"\n";
+    yaz+="olay ne zaman gerceklesti: "+nesne.timeStamp+"\n";
+    //dokumanın yuklendikten sonra event gerçekleşene kadar geçen süre ms
+    //ya dokuman yukledğinde yada f5 yaptıgında süre baslar
+    yaz+="bir baska tarih: "+new Date()+"\n";
+    yaz+="olay zamanında ctrl aktifmi: "+nesne.ctrlKey+"\n";
+    yaz+="olay zamanında shift aktifmi: "+nesne.shiftKey+"\n";
+    yaz+="olay zamanında altkey aktifmi: "+nesne.altKey+"\n";
+    yaz+="hangi mouse tusu ile tıklandı: "+nesne.button;//olay sadece sol tusla(click) gerceklestıgınden
+    //burada sadece 0 goruruz
+    console.log(yaz);
+}
+function olaytipi(olayimiz)
+{
+    
+    var yaz="olay tipi: "+olayimiz.type+"\n";
+    yaz+="hedef eleman: "+olayimiz.target+"\n";
+    yaz+="yonlendiriciyi yakalayan eleman: "+olayimiz.currentTarget+"\n";//kendi üzerinden tanımlandıgı
+    //için yonlendirici de kendisidir zaten
+    yaz+="bilgisayarın sol ust kosesine gore tıklanma koordinati x:"+
+    olayimiz.screenX+"  y: "+olayimiz.screenY+"\n";
+    yaz+="tarayicinin sol üst kosesine göre tıklanma koordinatı x:"+
+    olayimiz.clientX+ "  y:"+olayimiz.clientY+"\n";
+    alert(yaz);
+}
+function button(olayolay)
+{
+    var sonuc="";
+    switch(olayolay.button)
+    {
+        case 0:
+            sonuc="sol tus"; break;
+        case 1:
+            sonuc="orta tus"; break;
+        case 2:
+            sonuc="sag tus"; break;
+    }
+    console.log(sonuc);
+}
+//onmousedown = mouse'ın herhangi bir tusuna tıkladıgımız an
+//onclik tıklayıp bıraktıgı an'ı bekliyor
+//onykeydown onkeypress sonrada on keyup kosar js 
+//klavyeye basılı tutulup keydown kosar, basılı tuttugumuz sürece keypress kosar
+//tıklayıp ne zaman bırakırsak keyup kosar. 
+*/
+//40.html
+/*
+function klavye(olay)
+{
+    console.log(window.event.keyCode);//olay.char iptal(sadece yazdırılacak karakterler)
+    //event.keycode ile sadece yazdırılan karakter ler basılır
+    console.log(olay.key);//olay.key tam olarak basılan tusu verir.Keycode ise sadece yazılanları
+    document.getElementById('res1').innerHTML+=String.fromCharCode(olay.keyCode)+"-";
+    //her keycodeun karsılıklarını yazdırdık ust tarafa. alt taraftaki kutuda da hangi tusa bastıysak
+    //o eklenir
+    document.getElementById('res2').innerHTML+=olay.key+"-";
+    console.log(olay.location);
+    //olay.location: numpad icin 3,harf tarafı icin 0,SAGSHİFT 2,SOLSHİFT 1
+    //sagctrl 2,solshift1 gibi
+    console.log("---------");
+}
+function sadecesayilar(olay)
+{
+    console.log(olay.keyCode);
+    if(olay.keyCode>47 && olay.keyCode<58)//48 = 0 , 57= 9 'dur
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}*/
+//41.html
+function fun()
+{
+    document.getElementById('ust').addEventListener("click",fun1,true);
+    document.getElementById('alt').addEventListener("click",fun2,true);
+}
+function fun1(olay)
+{
+    console.log("ust elemanı click olayı");
+    olay.stopPropagation();
+}
+function kos(event)
+{
+    console.log(event.cancelable);// : varsayılan davranısını iptal edebilir miyim ?
+    event.preventDefault(); //varsayılan davranısını iptal ettik yani siteye gidemeyecek
+}
+function fun2(olay)
+{
+    console.log("alt tagına sahip eleman icin click olayı");
+}
+//stoppropagation : yapılan islemden sonrası için olayları durdurur
+//ustte yapılan tıklamayla body'den ust'e kadar yakalama kodları calısır fakat
+//sonrasındaki(alt divinde) elementlerde yakalama veya hedef varsa onları calıstırmaz
+//stopprog. kaldırırsak alt olayı da calisir 
+</script>
+<!--31.html
+<meta charset="utf-8"/>
+<title>Attributes</title>-->
+<!--37.html
+<meta charset="utf-8"/>
+<title>Olay akisi</title>-->
+<!---->
+</head>
+<!--41.html-->
+<body onload="fun()">
+    <div id="ust">
+        <div id="alt" style="width:200px;background-color: aqua;">Tıkla</div>
+    <a href="http://www.ktu.edu.tr" onclick="kos(event)">KTU</a></div>
+</body>
+<!--40.html
+<body>
+<input type="text" id="giris" onkeyup="klavye(event)" onkeypress="return sadecesayilar(event)"/><br/>
+event.char:
+<div class="kutu" style="width:20%;height:30px;padding:10px;border:1px solid gray;
+background-color: #eeeaea;color:black;" id="res1">1) </div>
+event.key:
+<div class="kutu" style="width:200px;height:30px;padding:10px;border:1px solid gray;
+background-color: #eeeaea;color:black;"id="res2">2) </div>
+</body>-->
+<!--39.html 'de olay yazdıgımızda event yazmaya mecburuz.browser sebebiyle
+<body onload="yukle()">
+    <p onclick="olaytipi(event)">
+    type: olay türünü tanımlar.
+    Tür bilgisi büyük küçük harf duyarlıdır
+    </p>
+    <div id="butontesti" style="width:200px;background-color:aqua;"
+    onmousedown="button(event)">Tıkla</div>
+</body>-->
+<!--38.html
+<body onload="fun()">
+    <div id="ust">
+        <div id="alt" style="background-color: orange;width:50px;">Tıkla!</div>
+    </div>
+
+</body>-->
+<!--37.html
+<body onload="fun()">
+    <div id="ust">
+    <div id="alt" style="background-color: green;width:50px;">
+        <p>Tıkla1!</p>
+        <br><br><br><br>
+        <p id="yes">Tıkla2!</p>
+    </div>
+    
+</div>
+<p>body</p>
+</body>-->
+<!--36.html
+<body>
+<div id="ilk" name="ilkdivimiz">
+    <h2>Merhaba</h2>
+    <p>Dünya</p>
+</div>
+<div id="iki">
+    <h3>Sonra</h3>
+    <p id="para">Eve </p>
+</div>
+<p id="dispar">Zıpla</p>
+<p id="silinecek">Silinecek bu </p>
+<center><input type="button" value="tikla1" onclick="buton()"/></center>
+<center><input type="button" value="tikla2" onclick="butoniki()" /></center>
+
+</body>-->
+
+<!--35.html
+<body>
+    <div id="create" style="background-color: #F0F0F0;color:blue;font-family: Calibri;font-size:xx-large">createElement()</div>
+    <div id="msg" class="dynamicDiv"></div>
+    <input type="text"/>
+    <p id="giris">Bu içeriği önce düzenlenemeyen sonrasında düzenlenebilen bir paragraftır.</p>
+    <center><input id="button" type="button" value="tikla" onclick="buton()"/></center>
+</body>-->
+
+<!--34.html
+<body>
+<div id="one" class="d1 d2 d3">
+    classList ozelligi
+</div>
+<center><input type="submit" value="tikla" onclick="buton()"/></center>
+
+</body>-->
+<!--33.html
+<body>
+    <div id="left">
+        <h3>HTML5</h3>
+        <div>
+            <p>
+                Html dilinin en son sürümüdür.
+                Modern web uygulamaları geliştirmek için 
+                kullanılır. <br />
+                Yeni etiketler ve özellikler sunar.
+            </p>
+        </div>
+        <h4>Embed</h4>
+    </div>
+    <center><input type="submit" value="tikla" onclick="buton()"/></center>
+</body>-->
+<!--32.html
+<body>
+<div id="left"> 
+    <h3>merhaba</h3>
+</div> 
+<center></center><input type="submit" value="Tıkla" onclick="buton();"/></center>
+
+</body>-->
+<!--31.html
+<body id="cocuk">
+    <p id="one" name="parag" style="background-color: aliceblue">Merhaba</p>
+    <center><input type="submit" value="Tıkla" onclick="buton()" /></center>
+    <h3>Node Konusu</h3>
+
+</body>-->
+<!--30.html
+<body>
+<div style="font-size:xx-large">createElement()</div>
+<div id="msg"></div>
+<p></p>
+<center><input type="button" value="Tıkla" onclick="buton()"/></center>
+</body>-->
+
+<!--29.html
+<body>
+<div id="div1">
+    <p>Oznitelik Düğümü</p>
+</div>
+<img src="r1.jpg" id="r1"/>
+<center><input type="submit" value="TIKLA" onclick="buton()"/></center>
+
+
+</body>-->
+<!--28.html
+<body onload="init()">
+    <div>
+        <p class="2d">Context2DRendering</p>
+        <p class="3d ctx">Context3DRendering</p>
+        <p class="webgl">WEBGL<span class="ctx">Uygulamaları</span></p>
+        <p class="p1 p2">
+            Class ozelligine p1 p2 sırasıyla secicileri atanmıs
+        </p>
+        <p class="p2 p1">
+            Class ozelligine p2 p1 sırayısyla seçicileri atanmış
+        </p>
+        <p class="p1">
+            Class ozelligine p1 secicisi atanmıs
+        </p>
+    </div>
+
+</body>
+-->
+<!--27.html
+<body>
+    <div class="dom">
+        <p>Dom level 1</p>
+        <p>Dom level 2</p>
+        <p>Dom level 3</p>
+    </div>
+    <center><input type="button" value="TIKLA" onclick="buton()"/></center>
+</body>-->
+
+<!--26.html
+<body onload="init()">
+    <div class="dom">
+        <p>Dom level1</p>
+        <p>Dom level2</p>
+        <p>Dom level3</p>
+    </div>
+</body>-->
+
+
+<!--25.html
+<body onload="init()">
+<div id="1"></div>
+<div id="2"></div>
+<div id="3"></div>
+<div id="4"></div>
+<div id="5"></div>
+
+<div id="div1">
+    <p>Her yönüyle HTML5</p>
+    <p class="p1">DOM LEVEL 2</p>
+    <p class="p3">DOM LEVEL 3</p>
+</div>
+
+</body>-->
+
+
+
+<!--24.html
+<body onload="init()">
+    <div id="content">
+        <div id="html5">Java<span>Script</span></div>
+        <div>asp.net</div>
+        <p>Javascript</p>
+    </div>
+</body>
+-->
+
+
+
+<!--23.html
+<body onload="init()">
+    <nav>
+        <ul>
+            <li>Siyah</li>
+            <li id="rG">Gri</li>
+            <li>Siyah</li>
+            <li>Kırmızı</li>
+            <li>Siyah</li>
+        </ul>
+    </nav>
+
+</body>-->
+
+<!--22.html
+<body onload="init()">
+    <p id="1">Selamlar</p>
+    <p id="2">Sevgiler</p>
+</body>-->
+<!--19.html
+<body onload="init()">sayfa açıldıgı an init fonksiyonu yüklenecek-->
+    <!--Güvenlik Resmi:<br/>
+    <canvas id="c" width="150" height="50"></canvas>canvas html5 elemanıdır.-->
+    <!--canvas tuval,cizim sunar bize.--> <!--
+    <canvas id="d" width="150" height="50"></canvas>
+    <canvas id="e" width="150" height="100"></canvas>
+    <input type="button" value="Degistir" onclick="degis()"/>
+    <br/>
+    <br/>
+    <img id="resim" src="r1.jpg" width="300" height="250" />
+    <div>
+        Köpek resmi buraya gelecek
+    </div>
+    <canvas id="f" width="720" height="450" style="border:1px solid #d3d3d3;"></canvas>
+    resmin gercek olcusudur-->
+     <!--
+    <input type="button" value="Getir" onclick="getir()"/>
+</body>
+-->
+<!--20.html-->
+<!--
+<body onload="init();"><!--Sayfa yüklenince kosar
+<img src="r1.jpg" id="r1" style="max-width:250px"/>
+<img src="r2.jpg" id="r2" style="max-height:250px"/>
+<img src="r3.jpg" id="r3" style="max-height:250px"/>
+<img src="r4.jpg" id="r4" style="max-height:250px"/>
+</body>-->
+<!--21.html-->
+<!--
+<body onload="init()">
+    
+<p id="first">getElementsById</p>
+<form name="ct" id="1"><input type="text"></form>
+<form name="ct" id="1"><input type="text"></form>
+
+</body>-->
+<style type="text/css">
+    /*35.html*/
+    .dynamicDiv
+    {
+        background-color: violet;
+        width:300px;
+        height:10px;
+    }
+    /*
+    23.html
+    ul
+    {
+        list-style-type: none;
+        padding:0;
+    }
+    nav li#rG/*navın altındaki bütün li'ler(cocuk veya torun hepsi) ve idsi rg olan
+    {
+        background-color: #999;
+    }
+    ul li:nth-of-type(2n+1)/*Secme sırası(1,3,5,7... elemanlar)
+    {
+        background-color: #000000;
+        color:white;
+    }
+    ul li#rG+li+li/*idsi rg olan elemandan 1 li sonraki tag + 1 li sonraki tag
+    {
+        background-color: #F00;
+    }*/
+    /*30 html 
+    .dynamicDiv
+    {
+        background-color: orange;
+        width: 300px;
+        height:100px;
+    }*/
+    </style>
+
+
+</html>
